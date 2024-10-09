@@ -28,52 +28,57 @@ const registerFlow = addKeyword(EVENTS.ACTION)
         await ctxFn.flowDynamic("Excelente! Tus datos ya fueron cargados, ya podes comenzar a utilizar el servicio. 🚀");
     })
 
-    .addAnswer('Aquí va un mensaje', { capture: true },
+    .addAnswer('¿Que Rango de edad tienes?', { capture: false },
     async (ctx, { provider }) => {
           const list = {
             "header": {
               "type": "text",
-              "text": "<HEADER_TEXT>"
+              "text": "Lista de Rangos"
             },
             "body": {
-              "text": "<BODY_TEXT>"
+              "text": "Presiona abajo para ver las opciones"
             },
             "footer": {
-              "text": "<FOOTER_TEXT>"
+              "text": ""
             },
             "action": {
-              "button": "<BUTTON_TEXT>",
+              "button": "Opciones",
               "sections": [
                 {
-                  "title": "<LIST_SECTION_1_TITLE>",
+                  "title": "Rango de edades: ",
                   "rows": [
                     {
                       "id": "<LIST_SECTION_1_ROW_1_ID>",
-                      "title": "<SECTION_1_ROW_1_TITLE>",
-                      "description": "<SECTION_1_ROW_1_DESC>"
+                      "title": "18-25 años",
+                      "description": ""
                     },
                     {
                       "id": "<LIST_SECTION_1_ROW_2_ID>",
-                      "title": "<SECTION_1_ROW_2_TITLE>",
-                      "description": "<SECTION_1_ROW_2_DESC>"
-                    }
-                  ]
-                },
-                {
-                  "title": "<LIST_SECTION_2_TITLE>",
-                  "rows": [
-                    {
-                      "id": "<LIST_SECTION_2_ROW_1_ID>",
-                      "title": "<SECTION_2_ROW_1_TITLE>",
-                      "description": "<SECTION_2_ROW_1_DESC>"
+                      "title": "26-35 años",
+                      "description": ""
                     },
                     {
-                      "id": "<LIST_SECTION_2_ROW_2_ID>",
-                      "title": "<SECTION_2_ROW_2_TITLE>",
-                      "description": "<SECTION_2_ROW_2_DESC>"
-                    }
+                        "id": "<LIST_SECTION_1_ROW_3_ID>",
+                        "title": "36-45 años",
+                        "description": ""
+                      },
+                      {
+                        "id": "<LIST_SECTION_1_ROW_4_ID>",
+                        "title": "46-55 años",
+                        "description": ""
+                      },
+                      {
+                        "id": "<LIST_SECTION_1_ROW_5_ID>",
+                        "title": "56-65 años",
+                        "description": ""
+                      },
+                      {
+                        "id": "<LIST_SECTION_1_ROW_6_ID>",
+                        "title": "65 años o más",
+                        "description": ""
+                      }
                   ]
-                }
+                },
               ]
             }
           };
