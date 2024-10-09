@@ -25,7 +25,7 @@ const registerFlow = addKeyword(EVENTS.ACTION)
         }
         const state = ctxFn.state.getMyState();
         await sheetsService.createUser(ctx.from, state.name, ctx.body);
-        await ctxFn.flowDynamic("Excelente! Tus datos ya fueron cargados, ya podes comenzar a utilizar el servicio. 🚀");
+        
     })
 
     .addAnswer('¿Que Rango de edad tienes?', { capture: false },
@@ -79,25 +79,11 @@ const registerFlow = addKeyword(EVENTS.ACTION)
                       }
                   ]
                 },
-                {
-                  "title": "<LIST_SECTION_2_TITLE>",
-                  "rows": [
-                    {
-                      "id": "<LIST_SECTION_2_ROW_1_ID>",
-                      "title": "<SECTION_2_ROW_1_TITLE>",
-                      "description": "<SECTION_2_ROW_1_DESC>"
-                    },
-                    {
-                      "id": "<LIST_SECTION_2_ROW_2_ID>",
-                      "title": "<SECTION_2_ROW_2_TITLE>",
-                      "description": "<SECTION_2_ROW_2_DESC>"
-                    }
-                  ]
-                }
               ]
             }
           };
           await provider.sendList(ctx.from, list);
+          await provider.flowDynamic("Excelente! Tus datos ya fueron cargados, ya podes comenzar a utilizar el servicio. 🚀");
         });      
 
 export { registerFlow };
