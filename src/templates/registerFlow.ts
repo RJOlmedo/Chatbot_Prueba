@@ -25,7 +25,7 @@ const registerFlow = addKeyword(EVENTS.ACTION)
         }
         const state = ctxFn.state.getMyState();
         await sheetsService.createUser(ctx.from, state.name, ctx.body);
-        
+        await ctxFn.flowDynamic("Excelente! Tus datos ya fueron cargados, ya podes comenzar a utilizar el servicio. 🚀");
     })
 
     .addAnswer('¿Que Rango de edad tienes?', { capture: false },
@@ -83,7 +83,6 @@ const registerFlow = addKeyword(EVENTS.ACTION)
             }
           };
           await provider.sendList(ctx.from, list);
-          await provider.flowDynamic("Excelente! Tus datos ya fueron cargados, ya podes comenzar a utilizar el servicio. 🚀");
         });      
 
 export { registerFlow };
